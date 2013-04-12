@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<virtualstreams>
+	<stream vhost="red300" app="live1" file="mp4:sorry.mp4" name="sorry_vod.sdp"/>
+</virtualstreams>

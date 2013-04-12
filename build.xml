@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<project name="VirtualStreams" default="jar">
+	
+	<property environment="env"/>
+
+	<property name="app.home" value="com.monotek.wms.server.VirtualStreams"/>
+
+	<property name="linux.wowza.lib.dir" value="/usr/local/WowzaMediaServer/lib"/>
+	
+	<property name="src.dir" location="src"/>
+	<property name="build.dir" location="build"/>
+
+	<property name="jar.filename" value="wms-plugin-virtualstreams.jar"/>
+
+	<target name="compile" description="Compiling Wowza VirtualStreams module">
+		<javac srcdir="${src.dir}" debug="true" destdir="${build.dir}" includeantruntime="false">
+			<classpath>
+				<pathelement path="${linux.wowza.lib.dir}/wms-server.jar" />
+				<pathelement path="${linux.wowza.lib.dir}/log4j-1.2.17.jar" />
+				<pathelement path="${linux.wowza.lib.dir}/wms-stream-publish.jar" />
+			</classpath>
+			<!--compilerarg value="-Xlint:unchecked"/-->
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile" description="Linking Wowza GeoIP module">
+		<jar jarfile="lib/${jar.filename}">
+			<fileset dir="${build.dir}">
+			</fileset>
+		</jar>
+	</target>
+	
+</project>
